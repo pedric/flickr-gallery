@@ -116,7 +116,8 @@ function buildHtmlList(index, length, reset){
 	};
 	// build html list items and append it to list
 	for(var i = index; i < length; i++) {
-		if(data[i].thumbnail && data[i].title){
+		if(data[i].thumbnail){
+			var title = data[i].title ? data[i].title : '#' ;
 			var li = document.createElement('li');
 			var img = document.createElement('img');
 			li.className = 'image_gallery__list-item';
@@ -132,7 +133,8 @@ function buildHtmlList(index, length, reset){
 	}
 	// indicates no of hits and position to user
 	document.getElementById('result_feedback').style.display = 'block';
-	document.getElementById('active_images').innerHTML = length;
+	var length_displayed_to_user = length > document.getElementsByClassName('image_gallery__list-item').length ? document.getElementsByClassName('image_gallery__list-item').length : length ; // just to make sure we don't lie in case of an error with the list of images
+	document.getElementById('active_images').innerHTML = length_displayed_to_user;
 	document.getElementById('total_images').innerHTML = data.length;
 }
 
@@ -239,8 +241,15 @@ document.getElementById('search_button').addEventListener('click', function(even
 	getFlickrData(query, false);
 });
 
-
-
+document.addEventListener('keydown', function(e){ // Ask interaction designer in charge of project about up and down keys
+	if(e.key === 'ArrowLeft'){
+		jump(-1);
+	} else if(e.key === 'ArrowRight'){
+		jump(1);
+	} else if(e.key === 'Escape'){
+		hideSlideshow();
+	}
+});
 
 
 
