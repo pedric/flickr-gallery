@@ -1,0 +1,89 @@
+.slideshow{
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: hsla(0, 0%, 0%, 0.8);
+
+
+    .slideshow__slide {
+        display: none;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%); 
+        width: 90%;
+        max-height: 66%;
+        background: hsla(0, 0%, 0%, 0.2);
+        padding: 8px;
+
+        @media (min-width:800px){
+            width: 66%;      
+        }
+
+        @media screen and (orientation:landscape) and (max-device-width: 800px) {
+            width: 50%;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%); 
+        }
+
+        &.active {
+            display: block;
+        }
+
+        .slideshow__close-button {
+            width: 50px;
+            float: right;
+            transition: all 100ms ease-in-out;
+
+            &:hover {
+                cursor: pointer;
+                transform: scale(1.1);
+            }
+        }
+
+        .slideshow__image {
+            object-fit: contain;
+            width: 100%;
+            max-height: 500px;
+            margin: 20px 0;
+
+            @media screen and (orientation:landscape) and (max-device-width: 800px) {
+                max-height: 150px;
+            }
+        }
+
+        p{
+            color: $almost-white;
+            font-size: 12px;
+            padding: 0 4px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+
+        .prev_button,
+        .next_button {
+            outline: 0;
+            background: transparent;
+            color: #fff;
+            border: 0;
+
+            &:hover {
+                text-decoration: underline;
+                cursor: pointer;
+            }
+        }
+
+        .prev_button {
+            
+        }
+
+        .next_button {
+            float: right;
+        }
+    }
+}

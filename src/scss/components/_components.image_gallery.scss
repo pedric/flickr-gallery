@@ -1,0 +1,203 @@
+.image_gallery {
+
+    .image_gallery__title {
+        text-align: center;
+        padding: 20px;
+        font-size: 20px;
+
+        @media (min-width:600px){
+            font-size: 24px;          
+        }
+    }
+
+    .image_gallery__filterbox {
+
+        width: 66%;
+        margin: 0 auto;
+        padding: 20px;
+
+        .image_gallery__filterbox-button-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        button {
+            border: 1px solid $almost-white;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 16px;
+            text-transform: uppercase;
+            color: $almost-white;
+            margin: 2px;
+
+            /* btn reset */
+            background: $theme-color;
+            outline: 0;
+
+            transition: background 100ms ease-in-out;
+
+            &:hover,
+            &:focus {
+                background: darken($theme-color,10);
+                cursor: pointer;
+            }
+
+            &.active {
+                background: darken($theme-color,10);
+                color: $almost-white;
+            }
+        }
+    }
+
+    .image_gallery__searchbox {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+
+        .image_gallery__search-wrapper {
+            width: 66%;
+        }
+
+        input {
+            margin: 0 auto;
+            border: 1px solid $gray;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 16px;
+            color: $almost-black;
+            width: 100%;
+
+            @media (min-width:600px){
+                width: calc(100% - 120px);
+            }
+        }
+
+        button {
+            border: 1px solid $almost-white;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 16px;
+            text-transform: uppercase;
+            color: $almost-white;
+            max-width: 110px;
+
+            /* change on desktop */
+            margin: 10px auto;
+            display: block;
+            width: 100%;
+            max-width: 100%;
+
+            /* btn reset */
+            background: $theme-color;
+            outline: 0;
+
+            transition: background 100ms ease-in-out;
+
+            @media (min-width:600px){
+                margin: 0;
+                display: inline-block;
+                max-width: 110px;
+            }
+
+            &:hover,
+            &:focus {
+                background: darken($theme-color,10);
+                cursor: pointer;
+            }
+        }
+    }
+
+
+    .image_gallery__list {
+        list-style: none;
+        padding: 10px;
+        display: flex;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+    }
+
+    .image_gallery__list-item {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-basis: 100%;
+        max-width: 100%;
+        padding: 20px;
+        // min-width: 200px;
+
+        @media (min-width:400px){
+            flex-basis: 50%;
+            max-width: 50%;          
+        }
+
+        @media (min-width:600px){
+            flex-basis: 33%;
+            max-width: 33%;           
+        }
+
+        @media (min-width:1400px){
+            flex-basis: 16.6664%;
+            max-width: 16.6664%;           
+        }
+
+        img {
+            max-width: 100%;
+            max-height: 100%;
+            opacity: 1;
+            transition: opacity 100ms ease-in-out;
+
+            &:hover{
+                cursor: pointer;
+                opacity: .7;
+            }
+        }
+    }
+
+    .image_gallery__lazy_load_controls{
+        padding-bottom: 40px;
+    }
+
+    #no_more_to_load {
+        display: none;
+        text-align: center;
+        font-weight: 700;
+        color: #9a9a9a;
+    }
+
+    .image_gallery__load_more{
+        display: block;
+        margin: 0 auto;
+        border: 1px solid $almost-white;
+        border-radius: 20px;
+        padding: 8px 36px;
+        font-size: 16px;
+        text-transform: uppercase;
+        color: $almost-white;
+
+        /* btn reset */
+        background: $theme-color;
+        outline: 0;
+
+        transition: background 100ms ease-in-out;
+
+        &:hover,
+        &:focus {
+            background: darken($theme-color,10);
+            cursor: pointer;
+        }
+    }
+
+    .image_gallery__num_results{
+        display: none;
+        text-align: center;
+        color: #9a9a9a;
+        font-weight: 400;
+
+        span {
+            color: #000;
+        }
+    }
+}

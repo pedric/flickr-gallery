@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Flickr image explorer (worksample)</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="css/main.css">
+</head>
+<body>
+
+	<div class="image_gallery">
+		<h2 id="app_title" class="image_gallery__title">Flickr image explorer</h2>
+		<div class="image_gallery__searchbox">
+			<div class="image_gallery__search-wrapper">
+				<form action="#">
+					<label style="display:none;" for="search">Search the Flickr api</label>
+					<input id="search" name="search" type="search" placeholder="Search the Flickr api...">
+					<button id="search_button" type="submit">Search</button>
+				</form>
+			</div>
+		</div>
+		<div class="image_gallery__filterbox">
+			<div>
+				<h4>Browse by category</h4>
+				<div class="image_gallery__filterbox-button-wrapper">
+					<button class="image_gallery__filter_button" onclick="getFlickrData(false, 'dogs,dog', 'dogs')">dogs</button>
+					<button class="image_gallery__filter_button" onclick="getFlickrData(false, 'cats,cat', 'cats')">cats</button>
+					<button class="image_gallery__filter_button" onclick="getFlickrData(false, 'horses,horse', 'horses')">horses</button>
+					<button class="image_gallery__filter_button" onclick="getFlickrData(false, 'birds,bird', 'birds')">birds</button>
+					<button class="image_gallery__filter_button" onclick="getFlickrData(false, 'lions,lion', 'lions')">lions</button>
+					<button class="image_gallery__filter_button" onclick="getFlickrData(false, 'zebras,zebra', 'zebras')">zebras</button>
+					<button class="image_gallery__filter_button" onclick="getFlickrData(false, 'fishes,fish', 'fishes')">fishes</button>
+					<button class="image_gallery__filter_button" onclick="getFlickrData(false, 'dinosaurs,dinosaur', 'dinosaurs')">dinosaurs</button>
+				</div>
+			</div>
+		</div>
+		<div id="loader" class="image_gallery__loader">
+			<div class="image_gallery__loader-icon">📷</div>
+			<p id="loader_message" class="loader__message">Loading</p>
+		</div>
+		<ul id="flickr_list" class="image_gallery__list">
+			
+		</ul>
+		<div class="image_gallery__lazy_load_controls">
+			<p id="result_feedback" class="image_gallery__num_results">showing <span id="active_images"></span> of <span id="total_images"></span></p>
+			<button id="load_more" class="image_gallery__load_more">Show more images +</button>
+		</div>
+	</div>
+<script src="js/main.js"></script>
+</body>
+</html>

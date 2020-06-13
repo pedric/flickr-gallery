@@ -1,0 +1,52 @@
+/* ==========================================================================
+   Utilities - Grid
+   ========================================================================== */
+
+.grid-col {
+  // margin-top: $spacing;
+  // margin-bottom: $spacing;
+  
+  padding: 32px;
+
+  flex-basis: 100%;
+  max-width: 100%;
+
+  @media (min-width: $small) {
+    
+    &-75 {
+      flex-basis: 75%;
+      max-width: 75%;
+    }
+
+    &-66 {
+      flex-basis: 66.6667%;
+      max-width: 66.6667%;
+    }
+
+    &-50 {
+      flex-basis: 50%;
+      max-width: 50%;
+    }
+
+    &-33 {
+      flex-basis: 33.3334%;
+      max-width: 33.3334%;
+    }
+
+    &-25 {
+      flex-basis: 25%;
+      max-width: 25%;
+    }
+
+    &--align-right {
+      order: 2;
+    }
+  }
+}
+
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
