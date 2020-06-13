@@ -89,15 +89,52 @@ body {
     .image_gallery .image_gallery__title {
       font-size: 24px; } }
 
+.image_gallery #menu_btn {
+  text-align: center; }
+  @media (min-width: 600px) {
+    .image_gallery #menu_btn {
+      text-align: left; } }
+  .image_gallery #menu_btn:hover {
+    text-decoration: underline;
+    cursor: pointer; }
+    @media (min-width: 600px) {
+      .image_gallery #menu_btn:hover {
+        text-decoration: none;
+        cursor: auto; } }
+  .image_gallery #menu_btn.active .menu_btn__arrow {
+    transform: rotate(180deg); }
+  .image_gallery #menu_btn .menu_btn__arrow {
+    display: inline;
+    height: 8px;
+    vertical-align: middle;
+    margin-left: 4px;
+    transform: rotate(0deg);
+    transition: transform 100ms ease-in-out; }
+    @media (min-width: 600px) {
+      .image_gallery #menu_btn .menu_btn__arrow {
+        display: none; } }
+
 .image_gallery .image_gallery__filterbox {
-  width: 66%;
+  width: 100%;
   margin: 0 auto;
-  padding: 20px; }
+  padding: 20px;
+  background: #eaeaea; }
+  @media (min-width: 600px) {
+    .image_gallery .image_gallery__filterbox {
+      width: 66%;
+      background: transparent; } }
   .image_gallery .image_gallery__filterbox .image_gallery__filterbox-button-wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-wrap: wrap; }
+    flex-wrap: wrap;
+    height: 0px;
+    overflow: hidden;
+    transition: height 200ms ease-in-out; }
+    @media (min-width: 600px) {
+      .image_gallery .image_gallery__filterbox .image_gallery__filterbox-button-wrapper {
+        height: unset;
+        overflow: auto; } }
   .image_gallery .image_gallery__filterbox button {
     border: 1px solid #f7f7f7;
     border-radius: 20px;
@@ -317,3 +354,17 @@ body {
   .image_gallery__loader .image_gallery__loader-icon {
     font-size: 30px;
     animation: spinner 1s infinite; }
+
+.action_bar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  text-align: center;
+  padding: 4px;
+  background: #bfbfbf;
+  color: #f7f7f7;
+  z-index: 999; }
+  .action_bar.action_bar--error {
+    background: #ea3f3f; }
+  .action_bar.action_bar--info {
+    background: #0d81e0; }

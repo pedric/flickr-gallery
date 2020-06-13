@@ -20,8 +20,8 @@
 		</div>
 		<div class="image_gallery__filterbox">
 			<div>
-				<h4>Browse by category</h4>
-				<div class="image_gallery__filterbox-button-wrapper">
+				<h4 id="menu_btn">Browse by category<img class="menu_btn__arrow" src="images/arrow.svg" alt="#"/></h4>
+				<nav id="filterbox" class="image_gallery__filterbox-button-wrapper">
 					<button class="image_gallery__filter_button" onclick="getFlickrData(false, 'dogs,dog', 'dogs')">dogs</button>
 					<button class="image_gallery__filter_button" onclick="getFlickrData(false, 'cats,cat', 'cats')">cats</button>
 					<button class="image_gallery__filter_button" onclick="getFlickrData(false, 'horses,horse', 'horses')">horses</button>
@@ -30,7 +30,7 @@
 					<button class="image_gallery__filter_button" onclick="getFlickrData(false, 'zebras,zebra', 'zebras')">zebras</button>
 					<button class="image_gallery__filter_button" onclick="getFlickrData(false, 'fishes,fish', 'fishes')">fishes</button>
 					<button class="image_gallery__filter_button" onclick="getFlickrData(false, 'dinosaurs,dinosaur', 'dinosaurs')">dinosaurs</button>
-				</div>
+				</nav>
 			</div>
 		</div>
 		<div id="loader" class="image_gallery__loader">
@@ -41,7 +41,7 @@
 			
 		</ul>
 		<div class="image_gallery__lazy_load_controls">
-			<p id="result_feedback" class="image_gallery__num_results">showing <span id="active_images"></span> of <span id="total_images"></span></p>
+			<p id="result_feedback" class="image_gallery__num_results">Show <span id="active_images"></span> of <span id="total_images"></span></p>
 			<button id="load_more" class="image_gallery__load_more">Show more images +</button>
 		</div>
 	</div>

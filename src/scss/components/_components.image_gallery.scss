@@ -10,17 +10,67 @@
         }
     }
 
+    #menu_btn {
+        text-align: center;
+
+        @media (min-width:600px){
+            text-align: left;       
+        }
+
+        &:hover {
+            text-decoration: underline;
+            cursor: pointer;
+            @media (min-width:600px){
+                text-decoration: none;
+                cursor: auto;       
+            }
+        }
+
+        &.active {
+            .menu_btn__arrow {
+                transform: rotate(180deg);
+            }
+        }
+
+        .menu_btn__arrow {
+            display: inline;
+            height: 8px;
+            vertical-align: middle;
+            margin-left: 4px;
+            transform: rotate(0deg);
+            transition: transform 100ms ease-in-out;
+
+            @media (min-width:600px){
+                display: none;
+            }
+        }
+    }
+
     .image_gallery__filterbox {
 
-        width: 66%;
+        width: 100%;
         margin: 0 auto;
         padding: 20px;
+        background: darken($almost-white,5);
+
+        @media (min-width:600px){
+            width: 66%;
+            background: transparent;
+        }
 
         .image_gallery__filterbox-button-wrapper {
             display: flex;
             justify-content: center;
             align-items: center;
             flex-wrap: wrap;
+            height: 0px;
+            overflow: hidden;
+            transition: height 200ms ease-in-out;
+
+            @media (min-width:600px){
+                height: unset;
+                overflow: auto;       
+            }
         }
 
         button {

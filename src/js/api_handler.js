@@ -21,6 +21,52 @@ function welcome(){
 welcome();
 
 /*
+* Error handlers for request and images
+* 
+*/
+function insertActionBar(type, msg){
+	if(type === 'error' && msg){
+		if(document.getElementsByClassName('action_bar--error').length <= 0){
+			var action_bar = document.createElement('div');
+			action_bar.classList.add('action_bar');
+			action_bar.classList.add('action_bar--error');
+			var message = document.createTextNode(msg);
+			action_bar.appendChild(message);
+			document.querySelector('body').appendChild(action_bar);
+		}
+	} else if(type === 'info' && msg){
+		if(document.getElementsByClassName('action_bar--info').length <= 0){
+			var action_bar = document.createElement('div');
+			action_bar.classList.add('action_bar');
+			action_bar.classList.add('action_bar--info');
+			var message = document.createTextNode(msg);
+			action_bar.appendChild(message);
+			document.querySelector('body').appendChild(action_bar);
+		}
+	} else if(msg) {
+		if(document.getElementsByClassName('action_bar').length <= 0){
+			var action_bar = document.createElement('div');
+			action_bar.classList.add('action_bar');
+			var message = document.createTextNode(msg);
+			action_bar.appendChild(message);
+			document.querySelector('body').appendChild(action_bar);
+		}
+	}
+}
+
+function handleImageError(err){
+	insertActionBar('error', 'Sorry, there are some problems with the images at the moment 🐛');
+}
+
+function handleRequestError(err){
+	var error = err.type ? err.type : 'unknown error' ;
+	error = error.toUpperCase();
+	document.getElementById('loader_message').innerHTML = error+'<br>please try to reload the page or come back later.';
+	document.getElementById('loader_message').style.color = '#ea3f3f';
+	document.getElementById('loader_message').style.textAlign = 'center';
+}
+
+/*
 * Saves data to localStorage
 * Clear and set new data
 */
@@ -78,6 +124,7 @@ function buildHtmlList(index, length, reset){
 			img.setAttribute('alt', data[i].title);
 			img.setAttribute('onclick', 'openSlideshow('+data[i].id+')');
 			img.setAttribute('data-index', i);
+			img.addEventListener('error', handleImageError);
 			li.appendChild(img);
 			document.getElementById('flickr_list').appendChild(li);
 		}
@@ -125,12 +172,6 @@ function lazyLoad(e){
 }
 
 
-function handleError(err){
-	document.getElementById('loader_message').innerHTML = 'Unknown error, please try to reload the page or come back later.';
-	document.getElementById('loader_message').style.color = 'red';
-}
-
-
 /*
 * Load more images
 * Button that loads the next 6 images to UI
@@ -158,7 +199,7 @@ function getFlickrData(searchString, tags, profile){
 
 	var flickrRequest = new XMLHttpRequest();
 	flickrRequest.open("GET", queryUrl, true);
-	flickrRequest.addEventListener('error', handleError);
+	flickrRequest.addEventListener('error', handleRequestError);
 	flickrRequest.send();
 	flickrRequest.onreadystatechange = function() {
 

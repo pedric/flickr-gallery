@@ -71,6 +71,7 @@ function buildSlideshow(){
 			img.setAttribute('alt', data[i].title);
 			img.setAttribute('data-index', i);
 			img.setAttribute('onclick', 'jump(1)');
+			img.addEventListener('error', handleImageError);
 			// append elements to slide
 			slide.appendChild(closeButton);
 			slide.appendChild(img);

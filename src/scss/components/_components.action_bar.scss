@@ -1,0 +1,18 @@
+.action_bar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    text-align: center;
+    padding: 4px;
+    background: $gray;
+    color: $almost-white;
+    z-index: 999;
+
+    &.action_bar--error {
+        background: $error-color;
+    }
+
+    &.action_bar--info {
+        background: $theme-color;
+    }
+}
